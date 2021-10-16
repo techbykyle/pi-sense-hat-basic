@@ -19,28 +19,43 @@ const PiSenseHatBasic = ({device, http, httpAction, tile, useHttp, useInterval }
         httpAction(dispatch, user.token, device.id, tile.id, http['get_humidity'])
     }, 30000)
 
-    if(temperature < 33) {
-        backgroundColor = '#4c8cf4'
+    if(temperature <= 0) {
+        backgroundColor = '#7293c9'
     }
 
-    if(temperature >= 33) {
-        backgroundColor = 'cyan'
+    if(temperature >= 1 && temperature < 33) {
+        backgroundColor = '#89bade'
     }
 
-    if(temperature >= 60) {
-        backgroundColor = 'yellow'
+    if(temperature >= 33 && temperature < 50) {
+        backgroundColor = '#89bade'
     }
 
-    if(temperature >= 80) {
-        backgroundColor = 'orange'
+    if(temperature >= 50 && temperature < 60) {
+        backgroundColor = '#a6c7ea'
     }
 
-    if(temperature >= 100) {
-        backgroundColor = 'red'
+    if(temperature >= 60 && temperature < 70) {
+        backgroundColor = '#a9dad1'
+    }
+
+    if(temperature >= 70 && temperature < 80) {
+        backgroundColor = '#90cfb5'
+    }
+    if(temperature >= 80 && temperature < 90) {
+        backgroundColor = '#febd7d'
+    }
+
+    if(temperature >= 90 && temperature < 100) {
+        backgroundColor = '#f8b2bc'
+    }
+
+    if(temperature >= 100 && temperature < 110) {
+        backgroundColor = '#f59598'
     }
 
     if(temperature >= 110) {
-        backgroundColor = '#7e0023'
+        backgroundColor = '#f59598'
     }
 
     const circle_style = { 
@@ -50,19 +65,20 @@ const PiSenseHatBasic = ({device, http, httpAction, tile, useHttp, useInterval }
         padding: 0, 
         margin: 10, 
         backgroundColor, 
-        width: 100, 
-        height: 100
+        width: 90, 
+        height: 90
     }
 
     const temp_style = {
+        textShadow: '1px 1px #2b2b2b',
         position: 'absolute', 
-        top: 48, 
+        top: 43, 
         left: '%50',
         transform: 'translate(-50%, -50%)'
     }
 
     return (
-        <div className="txt_center">
+        <div onClick={onClick} className="txt_center">
             <div>
                 <span className="circ" style={circle_style} title="Current Temperature">
                     <span style={temp_style}>{temperature}</span>
