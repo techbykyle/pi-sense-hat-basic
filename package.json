@@ -1,7 +1,7 @@
 {
   "name": "pi-sense-hat-basic",
   "federated-module-name": "PiSenseHatBasic",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Display metrics from a Raspberry Pi Sense Hat.",
   "main": "index.js",
   "scripts": {
