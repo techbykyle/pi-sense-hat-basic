@@ -65,27 +65,27 @@ const PiSenseHatBasic = ({device, http, httpAction, tile, useHttp, useInterval }
         padding: 0, 
         margin: 10, 
         backgroundColor, 
-        width: 90, 
-        height: 90
+        width: 110, 
+        height: 110
     }
 
     const temp_style = {
         textShadow: '1px 1px #2b2b2b',
         position: 'absolute', 
-        top: 43, 
+        top: 50, 
         left: '%50',
         transform: 'translate(-50%, -50%)'
     }
 
     return (
-        <div onClick={onClick} className="txt_center">
+        <div className="txt_center">
             <div>
                 <span className="circ" style={circle_style} title="Current Temperature">
                     <span style={temp_style}>{temperature}</span>
                 </span>
             </div>
             <div>
-                <span title="Temperature" style={{color: backgroundColor}}>{temperature}&deg;F</span> / <span title="Humidity">%{humidity}</span>
+                <span title="Current Temperature" style={{color: backgroundColor}}>{temperature}&deg;F</span> / <span title="Current Humidity">{humidity}%</span>
             </div>
         </div>
     )
