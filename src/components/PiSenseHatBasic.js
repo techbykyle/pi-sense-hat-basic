@@ -17,7 +17,7 @@ const PiSenseHatBasic = ({device, http, httpAction, tile, useHttp, useInterval }
     useInterval(() => {
         httpAction(dispatch, user.token, device.id, tile.id, http['get_temp_f'])
         httpAction(dispatch, user.token, device.id, tile.id, http['get_humidity'])
-    }, 30000)
+    }, 60000)
 
     if(temperature <= 0) {
         backgroundColor = '#7293c9'
